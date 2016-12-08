@@ -30,7 +30,7 @@ def getTweets(api, query='', since='', until=''):
                 , tweet.user.followers_count
                 , tweet.user.favourites_count
                 , tweet.user.statuses_count
-                ,])
+                ])
             # Insert into db
         except tweepy.TweepError:
             time.sleep(60 * 15)
@@ -60,7 +60,7 @@ def getUserTimeline(api, screen_name):
             , status.user.followers_count
             , status.user.favourites_count
             , status.user.statuses_count
-            ,])
+            ])
         print(status.text)
     return tweets
 
@@ -83,7 +83,7 @@ if __name__ == '__main__':
     since = '2016-11-09'
     until = '2016-11-16'
     #tweets = getTweets(api, query=query, since=since, until=until)
-    header = ['id_str', 'screen_name', 'created_at', 'text', 'ツイートのリツイート数', 'プロフィール文', 'フォロー数', 'フォロワー数', 'お気に入り登録数', '投稿数']
+    header = ['id_str', 'screen_name', 'created_at', 'text', 'retweets', 'profile_text', 'follows', 'followers', 'favorites', 'tweets']
 
     """
     with open('tweets_' + query + '.csv', 'w') as f:
